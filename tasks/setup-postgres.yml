@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: "{{ postgres_data_dir }}"
     state: directory
-    mode: 0755
+    mode: 0700
 
 - name: Ensure postgres init directory is present
   ansible.builtin.file:
