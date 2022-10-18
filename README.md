@@ -1,6 +1,8 @@
 paprikant.beacon
 ================
 
+![lint](https://github.com/paprikant/ansible-role-beacon/actions/workflows/lint.yml/badge.svg) ![test](https://github.com/paprikant/ansible-role-beacon/actions/workflows/test.yml/badge.svg)
+
 An ansible role that sets up a running instance of [beacon-python](https://beacon-python.readthedocs.io/en/latest/), with an accompaning PostgreSQL database. Both services are exposed via network - refer to the _Role Variables_ section for default ports and credentials.
 
 This role is using the official [postgres](https://hub.docker.com/_/postgres) and [beacon-python](https://hub.docker.com/r/cscfi/beacon-python/) docker images. Hence, docker is installed as a requirement to run beacon-python.  
