@@ -1,0 +1,26 @@
+---
+- name: Pull beacon-python image
+  community.docker.docker_image:
+    name: cscfi/beacon-python:{{ bp_version }}
+    source: pull
+    pull:
+      platform: amd64
+
+- name: Create beacon-python container
+  community.docker.docker_container:
+    name: "{{ bp_container_name }}"
+    image: cscfi/beacon-python:{{ bp_version }}
+    state: started
+    restart_policy: always
+    published_ports:
+      - "{{ bp_external_binding }}:5050"
+    volumes:
+      - "{{ postgres_init_dir }}/init-postgres-db.sql:/docker-entrypoint-initdb.d/init-postgres-db.sql:ro"
+      - "{{ postgres_data_dir }}:/var/lib/postgresql/data"
+    env:
+      DATABASE_URL: "{{ postgres_container_name }}"
+      DATABASE_USER: "{{ postgres_user }}"
+      DATABASE_PASSWORD: "{{ postgres_pass }}"
+      DATABASE_NAME: "{{ postgres_database_name }}"
+    networks:
+      - name: "{{ shared_network_name }}"

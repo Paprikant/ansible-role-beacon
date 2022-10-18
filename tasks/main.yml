@@ -1,0 +1,26 @@
+---
+# tasks file for beacon
+#
+
+# This task will install docker from their official repositories
+- name: Set up docker
+  ansible.builtin.include_tasks: "setup-docker.yml"
+
+- name: Ensure docker network for the deployment exists
+  community.docker.docker_network:
+    name: "{{ shared_network_name }}"
+    state: present
+
+# This task will set
+- name: Set up postgres
+  ansible.builtin.include_tasks: "setup-postgres.yml"
+
+- name: Set up beacon-python
+  ansible.builtin.include_tasks: "setup-beacon-python.yml"
+
+    #- name: Pull beacon-python image
+    #  community.docker.docker_image:
+    # name: cscfi/beacon-python:{{ beacon-python_version }}
+    #source: pull
+    #pull:
+    #  platform: amd64
