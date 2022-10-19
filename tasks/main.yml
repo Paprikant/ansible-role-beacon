@@ -17,10 +17,3 @@
 
 - name: Set up beacon-python
   ansible.builtin.include_tasks: "setup-beacon-python.yml"
-
-    #- name: Pull beacon-python image
-    #  community.docker.docker_image:
-    # name: cscfi/beacon-python:{{ beacon-python_version }}
-    #source: pull
-    #pull:
-    #  platform: amd64
