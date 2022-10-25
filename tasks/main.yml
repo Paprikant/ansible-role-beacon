@@ -2,9 +2,12 @@
 # tasks file for beacon
 #
 
-# This task will install docker from their official repositories
 - name: Set up docker
-  ansible.builtin.include_tasks: "setup-docker.yml"
+  ansible.builtin.include_role:
+    name: geerlingguy.docker
+  vars:
+     docker_users:
+      - centos
 
 - name: Ensure docker network for the deployment exists
   community.docker.docker_network:
