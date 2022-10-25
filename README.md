@@ -75,7 +75,7 @@ The port on which to expose the beacon API. You may also give an ip:port combina
 Dependencies
 ------------
 
-None.
+* includes [geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker) role
 
 Example Playbook
 ----------------
