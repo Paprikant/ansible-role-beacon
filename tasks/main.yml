@@ -9,6 +9,11 @@
      docker_users:
       - centos
 
+- name: Ensure python-requests is available
+  ansible.builtin.package:
+    name: "python3-requests"
+    state: present
+
 - name: Ensure docker network for the deployment exists
   community.docker.docker_network:
     name: "{{ shared_network_name }}"

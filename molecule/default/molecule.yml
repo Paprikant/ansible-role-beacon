@@ -15,8 +15,8 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
 
-  - name: CentOS-stream9
-    image: quay.io/centos/centos:stream8
+  - name: rocky9
+    image: rockylinux/rockylinux:9 
     pre_build_image: true
     command: /sbin/init
     tmpfs:
