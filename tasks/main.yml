@@ -7,9 +7,6 @@
 - name: Set up docker
   ansible.builtin.import_role:
     name: geerlingguy.docker
-  vars:
-     docker_users:
-      - centos
 
 - name: Ensure docker network for the deployment exists
   community.docker.docker_network:
