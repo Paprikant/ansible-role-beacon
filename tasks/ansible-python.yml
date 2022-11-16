@@ -12,7 +12,9 @@
     virtualenv: /ansible
     virtualenv_command: python3 -m venv
     virtualenv_site_packages: false
+    extra_args: --upgrade
   loop:
+    - pip
     - docker
     - docker-compose
 
