@@ -1,0 +1,13 @@
+# encountered at https://github.com/usegalaxy-eu/ansible-traefik/blob/main/tasks/ansible-python.yml
+---
+- name: Install python docker
+  become: true
+  pip:
+    name: "{{ item }}"
+    virtualenv: /ansible/bin/python
+    virtualenv_command: python3.9 -m venv
+    virtualenv_site_packages: false
+
+  loop:
+    - docker
+    - docker-compose
