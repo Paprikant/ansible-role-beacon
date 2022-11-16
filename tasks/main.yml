@@ -1,6 +1,8 @@
 ---
-# tasks file for beacon
-#
+# encountered at https://github.com/usegalaxy-eu/ansible-traefik/blob/main/tasks/main.yml#L3
+- name: Include EL9 python workaround
+  ansible.builtin.include_tasks: ansible-python.yml
+  when: ansible_os_family == "RedHat"
 
 - name: Set up docker
   ansible.builtin.import_role:
@@ -8,12 +10,6 @@
   vars:
      docker_users:
       - centos
-
-- name: Ensure python-requests is available
-  ansible.builtin.package:
-    name: "python3-requests"
-    state: present
-  when: ansible_os_family == "RedHat" and ansible_distribution_major_version == '9'
 
 - name: Ensure docker network for the deployment exists
   community.docker.docker_network:
