@@ -10,7 +10,7 @@
   ansible.builtin.pip:
     name: "{{ item }}"
     virtualenv: /ansible
-    virtualenv_command: python3.9 -m venv
+    virtualenv_command: python3 -m venv
     virtualenv_site_packages: false
   loop:
     - docker
