@@ -8,6 +8,10 @@
   ansible.builtin.import_role:
     name: geerlingguy.docker
 
+- name: Set up docker
+  ansible.builtin.import_role:
+    name: geerlingguy.pip
+
 - name: Ensure docker network for the deployment exists
   community.docker.docker_network:
     name: "{{ shared_network_name }}"
