@@ -2,10 +2,6 @@
 - name: Set up pip
   ansible.builtin.import_role:
     name: geerlingguy.pip
-  vars:
-    pip_executable: pip3.9
-    pip_package: python39-pip
-
 
 - name: Set up docker
   ansible.builtin.import_role:
