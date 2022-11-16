@@ -1,16 +1,16 @@
 ---
 - name: Ensure beacon settings directory is present
   ansible.builtin.file:
-    path: "{{ bp_config_dir}}"
+    path: "{{ bp_config_dir }}"
     state: directory
     mode: 0755
 
 - name: Provide beacon config
   ansible.builtin.template:
     src: files/config.ini.j2
-    dest: "{{ bp_config_dir}}/config.ini"
+    dest: "{{ bp_config_dir }}/config.ini"
     owner: root
-    mode: 644
+    mode: 0644
 
 - name: Pull beacon-python image
   community.docker.docker_image:
